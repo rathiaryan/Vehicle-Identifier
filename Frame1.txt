@@ -1,0 +1,63 @@
+package stu_prj;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+//import java.awt.*;
+import java.sql.*;
+public class JFrame1 extends JFrame implements ActionListener {
+ //JButton jb1;
+ //JLabel l1;
+ private ImageIcon image;
+ JLabel l1, l3, l4, l5;
+ JTextField t1;
+ String vehicle_no; //getting text of username text field and storing it in a String variable
+ JButton b1, b2, b3;
+ Connection connection;//Creating object of Connection class
+ Statement statement;//Creating object of Statement class
+JFrame1(){
+ image = new ImageIcon(getClass().getResource("Dit.png"));
+ l4 = new JLabel(image);
+ l1 = new JLabel("Enter the Vehicle's Number:");
+ l3 = new JLabel();
+ l5 = new JLabel("For Further Assistance:");
+ t1 = new JTextField();
+ b1 = new JButton("Search");
+ b2 = new JButton("Add Entry");
+ b3 = new JButton("Edit Entry");
+ l1.setBounds(20, 200, 350, 20);
+ t1.setBounds(190, 200, 100, 20);
+ b1.setBounds(20, 230, 100, 20);
+ l3.setBounds(200, 280, 200, 20);
+ l4.setBounds(20, 10, 180, 180); //Image bounds
+ l5.setBounds(20, 270, 350, 20);
+ b2.setBounds(20, 300, 100, 20);
+ b3.setBounds(20, 325, 100, 20);
+ b1.addActionListener(this);
+ add(l4);
+ add(l1);
+ add(t1);
+ add(b1);
+ add(l3);
+ add(l5);
+ add(b2);
+ add(b3);
+ getContentPane().setBackground(Color.LIGHT_GRAY);
+ setLayout(null);
+ setSize(400, 400);
+ setVisible(true);
+ }
+ public void actionPerformed(ActionEvent e) {
+ if (e.getSource().equals(b1)) {
+ this.dispose();
+ vehicle_no=t1.getText().toString();
+ JFrame2 jFrame2 = new JFrame2(vehicle_no);
+ jFrame2.setVisible(true);
+ }
+ }
+ // main method to invoke the cunstructor
+ public static void main(String args[])
+ {
+ JFrame1 jFrame1 = new JFrame1();
+ }
+ }

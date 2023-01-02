@@ -1,0 +1,42 @@
+ Connection connection = 
+DriverManager.getConnection("jdbc:mysql://localhost:3306/DIT_UNIVERSITY", "root", 
+"Pratham@123");//Crating connection with database //127.0.0.1
+ Statement statement = connection.createStatement();//crating statement object
+ String query = ("select * from Vehicle_information where Registration_no = '" + 
+vehicle_no + "'" );
+ ResultSet set = statement.executeQuery(query);//executing query and storing result in 
+ResultSet
+// System.out.println(set);
+ while (set.next()) {
+////
+ String vehicle_no1 = set.getString("Registration_no");
+ String Name = set.getString("Name");
+ String sap = set.getString("Sap_ID");
+ String phone = set.getString("Contact_No");
+ String address = set.getString("Local_Address");
+ image1 = new ImageIcon(getClass().getResource("Dit.png"));
+ l6 = new JLabel(image1);
+ l1 = new JLabel("Vehicle's Registration_No is: " + vehicle_no1);
+ l2 = new JLabel("Name of a Student is: " + Name);
+ l3 = new JLabel("Sap_Id of a Student is: " + sap);
+ l4 = new JLabel("Contact_No. of Student is:" + phone);
+ l5 = new JLabel("Local_Address of a Student is: " + address);
+ l6.setBounds(20, 10, 180, 180); //Image Bounds
+ l1.setBounds(20, 200, 250, 20);
+ l2.setBounds(20, 230, 250, 20);
+ l3.setBounds(20, 260, 250, 20);
+ l4.setBounds(20, 290, 250, 20);
+ l5.setBounds(20, 320,400,20);
+ add(l6);
+ add(l1);
+ add(l2);
+ add(l3);
+ add(l4);
+ add(l5);
+ getContentPane().setBackground(Color.LIGHT_GRAY);
+ setLayout(null);
+ setSize(450, 450);
+ }
+ } catch (Exception e) {
+ System.out.println(e);
+ }

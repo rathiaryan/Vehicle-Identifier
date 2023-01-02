@@ -1,0 +1,15 @@
+package stu_prj;
+import com.mysql.cj.protocol.Resultset;
+import javax.swing.*;
+import java.awt.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+public class JFrame2 extends JFrame{
+ JLabel l1, l2, l3, l4, l5, l6;
+ private ImageIcon image1;
+ JFrame2(String vehicle_no) {
+ try {
+ //load the driver
+ Class.forName("com.mysql.cj.jdbc.Driver")
